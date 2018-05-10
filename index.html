@@ -1,7 +1,545 @@
 <!DOCTYPE html>
 <html>
+<head>
+<title>CLIX Token - Cryptocurrency for Paid to Click Websites</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" 
+integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" 
+crossorigin="anonymous">
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: 'Ubuntu', sans-serif;}
+body, html {
+    height: 100%;
+    line-height: 1.8;
+}
+/* Full height image header */
+.bgimg-1 {
+    background-position: center;
+    background-size: cover;
+    background-image: url("images/planet.jpg");
+    min-height: 100%;
+}
+.w3-bar .w3-button {
+    padding: 16px;
+}
+
+/* Roadmap */
+.roadmapWrapper {
+	box-sizing: none;
+  margin: 0 0 1em 0;
+  overflow: hidden;
+  position: relative;
+}
+.roadmapWrapper:before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 50%;
+  bottom: 0px;
+  transform: translateX(-50%);
+  width: 4px;
+  background-color: #ccc;
+}
+.roadmapWrapper .entries {
+  width: calc(100% - 80px);
+  max-width: 800px;
+  margin: auto;
+  position: relative;
+  left: -5px;
+}
+.roadmapWrapper .entries .entry {
+  width: calc(50% - 80px);
+  float: left;
+  /*padding: 20px;*/
+  clear: both;
+  text-align: right;
+}
+.roadmapWrapper .entries .entry:not(:first-child) {
+  margin-top: -60px;
+}
+.roadmapWrapper .entries .entry .title {
+  font-size: 32px;
+  margin-bottom: 12px;
+  position: relative;
+  color: #aaa;
+}
+.roadmapWrapper .entries .entry .title:before {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border: 4px solid #ccc;
+  background-color: #ccc;
+  border-radius: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  right: -89px;
+  z-index: 1000;
+}
+.roadmapWrapper .entries .entry .title.big:before {
+  width: 24px;
+  height: 24px;
+  transform: translate(8px, -50%);
+}
+.roadmapWrapper .entries .entry .body {
+  color: #aaa;
+}
+.roadmapWrapper .entries .entry .body p {
+  line-height: 1.4em;
+}
+.roadmapWrapper .entries .entry:nth-child(2n) {
+  text-align: left;
+  float: right;
+}
+.roadmapWrapper .entries .entry:nth-child(2n) .title:before {
+  left: -79px;
+}
+.roadmapWrapper .entries .entry:nth-child(2n) .title.big:before {
+  transform: translate(-8px, -50%);
+}
+</style>
+<!-- amCharts javascript sources -->
+<script type="text/javascript" src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+<script type="text/javascript" src="https://www.amcharts.com/lib/3/pie.js"></script>
+
+<!-- amCharts javascript code -->
+<script type="text/javascript">
+AmCharts.makeChart("chartdiv",
+	{
+		"type": "pie",
+		"angle": 22.5,
+		"balloonText": "[[title]]<br><span style='font-size:14px'><b>[[value]]</b> ([[percents]]%)</span>",
+		"depth3D": 13,
+		"baseColor": "#91DA3A",
+		"outlineThickness": 0,
+		"titleField": "category",
+		"valueField": "column-1",
+		"fontFamily": "Tahoma",
+		"handDrawScatter": 3,
+		"theme": "default",
+		"allLabels": [],
+		"balloon": {},
+		"titles": [],
+		"dataProvider": [
+			{
+				"category": "Distributed",
+				"column-1": "170000000"
+			},
+			{
+				"category": "Developers",
+				"column-1": "20000000"
+			},
+			{
+				"category": "Bounties",
+				"column-1": "10000000"
+			}
+		]
+	}
+);
+</script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-96377317-3"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', 'UA-96377317-3');
+</script>
+</head>
+
 <body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
+
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+<div class="w3-bar w3-white w3-card" id="myNavbar">
+<a href="#home" class="w3-bar-item w3-button w3-wide">CLIX TOKEN</a>
+<!-- Right-sided navbar links -->
+<div class="w3-right w3-hide-small">
+<a href="#about" class="w3-bar-item w3-button"><i class="fa fa-file-alt"></i> Whitepaper</a>
+<a href="#team" class="w3-bar-item w3-button"><i class="fas fa-save"></i> Smart Contract</a>
+<a href="#work" class="w3-bar-item w3-button"><i class="fas fa-chart-pie"></i> Specifications</a>
+<a href="#pricing" class="w3-bar-item w3-button"><i class="fas fa-compass"></i> Roadmap</a>
+<a href="#contact" class="w3-bar-item w3-button"><i class="fas fa-hand-holding-usd"></i> Request</a>
+</div>
+<!-- Hide right-floated links on small screens and replace them with a menu icon -->
+<a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
+<i class="fa fa-bars"></i>
+</a>
+</div>
+</div>
+
+<!-- Sidebar on small screens when clicking the menu icon -->
+<nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidebar">
+<a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close ×</a>
+<a href="#about" onclick="w3_close()" class="w3-bar-item w3-button">Whitepaper</a>
+<a href="#team" onclick="w3_close()" class="w3-bar-item w3-button">Smart Contract</a>
+<a href="#work" onclick="w3_close()" class="w3-bar-item w3-button">Specifications</a>
+<a href="#pricing" onclick="w3_close()" class="w3-bar-item w3-button">Roadmap</a>
+<a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button">Request</a>
+</nav>
+
+<!-- Header with full-height image -->
+<header class="bgimg-1 w3-display-container w3-grayscale-min" id="home">
+<div class="w3-display-left w3-text-white" style="padding:48px">
+<span class="w3-jumbo w3-hide-small" style="text-shadow:2px 2px #000">Introducing Clix Token</span><br>
+<span class="w3-xxlarge w3-hide-large w3-hide-medium" style="text-shadow:2px 2px #000">Introducing Clix Token</span><br>
+<span class="w3-large" style="text-shadow:1px 1px #000">A global cryptocurrency for all Paid to Click websites built on top of the powerful and proven Ethereum Blockchain.</span>
+<p><a href="#about" class="w3-button w3-white w3-padding-large w3-large w3-margin-top w3-opacity w3-hover-opacity-off">Learn more</a></p>
+</div>
+</header>
+
+<!-- About Section -->
+<div class="w3-container" style="padding:128px 16px" id="about">
+<h3 class="w3-center">What is CLIX Token?</h3>
+<div class="w3-center">
+<img class="w3-image" src="images/Clix-Token-Main-Logo.png" alt="CLIX Token" style="max-width: 200px; margin: 0 auto"/>
+</div>
+<div class="w3-row">
+<div class="w3-col m2"><p></p></div>
+<div class="w3-col m8 w3-center">
+<p class="w3-large">CLIX Token is a fully transparent and decentralized ERC20 token built on top of the Ethereum network.
+<br>	
+You can earn, spend or trade CLIX Token on any Paid to Click website that supports it.
+<br><br>
+Think of CLIX Token as a single global cryptocurrency for all Paid to Click websites and future PTC related 
+decentralized applications (dapps).</p>
+</div>
+<div class="w3-col m2"><p></p></div>
+</div>
+<div class="w3-row-padding w3-center" style="margin-top:64px">
+<div class="w3-quarter w3-padding">
+<i class="fas fa-user-tie w3-margin-bottom w3-jumbo w3-center"></i>
+<p class="w3-large">Admins</p>
+<p>As a PTC website owner you can use CLIX Token to reward your users, purchase advertising packages or simply trade amongst 
+friends and business partners.</p>
+</div>
+<div class="w3-quarter w3-padding">
+<i class="fas fa-users w3-margin-bottom w3-jumbo"></i>
+<p class="w3-large">Users</p>
+<p>As a PTC website user you can earn CLIX Token as a reward for viewing advertisements and completing offers on all Paid to 
+Click websites that support our token.</p>
+</div>
+<div class="w3-quarter w3-padding">
+<i class="fas fa-hands-helping w3-margin-bottom w3-jumbo"></i>
+<p class="w3-large">Trust</p>
+<p>CLIX Token utilizes the power of Blockchain technology to add a layer of transparency and trust to Paid to Click websites 
+never seen before.</p>
+</div>
+<div class="w3-quarter w3-padding">
+<i class="fas fa-seedling w3-margin-bottom w3-jumbo"></i>
+<p class="w3-large">Future</p>
+<p>Everyone knows that decentralized apps (dapps) on the Blockchain are the future. CLIX Token will be used as a global 
+cryptocurrency for all PTC related dapps in the future.</p>
+</div>
+</div>
+</div>
+
+<!-- "Why use CLIX Token" -->
+<div class="w3-container w3-light-grey" style="padding:128px 16px">
+<div class="w3-row-padding">
+<div class="w3-col m1"><p></p></div>
+<div class="w3-col m6 w3-container w3-padding-large">
+<h3>Why use CLIX Token?</h3>
+<p>The Paid to Click industry consists of hundreds of websites. Each of those websites have at least one thing in common: 
+<br><br>
+They all utilize some form of a points incentive system to reward their users for various tasks. For example viewing 
+advertisements or completing surveys.</p>
+<p>This traditional model has two main problems:
+<br><br>
+<span style="padding-left:12px;">1) You can only use your reward points on the same website you earned them.</span><br>
+<span style="padding-left:12px;">2) The value of each reward point can vary greatly between PTC websites.</span>
+</p>
+<p>Not only does CLIX Token offer a modern solution to these, as well as many other problems the industry is currently facing, 
+it can also help prevent SCAM websites from forming.
+</p>
+<p>This is possible thanks to the Blockchain techology. With every token transaction permanently recorded in a public ledger, 
+it becomes very difficult for fraudulent PTC websites to operate.
+</p>
+<br>
+<p><a href="#Benefits" class="w3-button w3-black "><i class="fa fa-th"> </i> Main Benefits</a></p>
+</div>
+<div class="w3-col m4 w3-container w3-padding-large">
+<img class="w3-image" src="images/girls.jpg" alt="Two girls behind a Samsung laptop">
+</div>
+<div class="w3-col m1"><p></p></div>
+</div>
+</div>
+
+
+<!-- "Main Benefits" -->
+<div class="w3-container" style="padding:128px 16px" id="Benefits">
+
+  <h3 class="w3-center">Main Benefits</h3>
+  <p class="w3-center w3-large">Key features that make CLIX Token a real game changer within the PTC industry</p>
+
+  <div class="w3-row-padding w3-padding-24">
+  
+	<div class="w3-col m1"><p></p></div>
+	
+    <div class="w3-col m5">
+	<img src="images/pic04.jpg" alt="Transparency & Trust" style="width:100%"/>
+	<div class="w3-container w3-left">
+		<h3 class="w3-margin-top">Transparency & Trust</h3>
+		<p>When you use CLIX token to reward your users instead of centralized e-currencies or points, you add a layer of transparency 
+		and trust to your website never seen before in the Paid to Click industry.</p>
+	</div>
+    </div>
+	
+    <div class="w3-col m5">
+	<img src="images/pic05.jpg" alt="New Opportunities" style="width:100%"/>
+	<div class="w3-container w3-left">
+    <h3 class="w3-margin-top">New Opportunities</h3>
+    <p>CLIX Token can also be a workaround to promoting various non-incentive campaigns currently unavailable to you and because of 
+	the high popularity of cryptocurrency tokens in general you will attract a much wider audience than before.</p>
+    </div>
+	</div>
+	
+	<div class="w3-col m1"><p></p></div>
+	
+  </div>
+  
+  <div class="w3-row-padding w3-padding-24">
+  
+	<div class="w3-col m1"><p></p></div>
+	
+    <div class="w3-col m5">
+	<img src="images/pic06.jpg" alt="Transparency & Trust" style="width:100%"/>
+	<div class="w3-container w3-left">
+    <h3>Single Value</h3>
+    <p>Unlike your regular reward points, the value of CLIX token is determined by the principles of supply and demand. 
+	Therefore it has roughly the same value throughout the network of PTC sites that use it.</p>
+	</div>
+    </div>
+	
+    <div class="w3-col m5">
+	<img src="images/pic07.jpg" alt="New Opportunities" style="width:100%"/>
+	<div class="w3-container w3-left">
+    <h3>SCAM Free</h3>
+    <p>Because every token transaction is permanently stored in a public ledger known as the Blockchain it becomes more 
+	difficult for fraudulent PTC websites to operate. It becomes impossible for users to post fake payment proofs online 
+	because every token transaction is easily verifiable.</p>
+    </div>
+	</div>
+	
+	<div class="w3-col m1"><p></p></div>
+	
+  </div>
+  
+</div>
+
+<!-- "Meet the Team" -->
+<div class="w3-container w3-light-grey" style="padding:128px 16px" id="team">
+  <h3 class="w3-center">Meet the team</h3>
+  <p class="w3-center w3-large">People behind the project</p>
+  <div class="w3-row-padding w3-grayscale" style="margin-top:64px">
+  
+	<div class="w3-col m2"><p></p></div>
+  
+    <div class="w3-col m4 w3-margin-bottom">
+      <div class="w3-card">
+        <img src="images/frank.png" alt="Frank" style="width:100%">
+        <div class="w3-container w3-white">
+          <h3>Frank Petser</h3>
+          <p class="w3-opacity">CEO & Lead Developer</p>
+          <p>Frank launched his own PTC website Cash Clicks more than 11 years ago after previously working on various websites for about two years. He is 
+		  also the author of GPT Handbook.</p>
+          <p><button class="w3-button w3-light-grey w3-block"><i class="fa fa-envelope"></i> Contact</button></p>
+        </div>
+      </div>
+    </div>
+	
+    <div class="w3-col m4 w3-margin-bottom">
+      <div class="w3-card">
+        <img src="images/remy.png" alt="Remy" style="width:100%">
+        <div class="w3-container w3-white">
+          <h3>Remy Berrevoets</h3>
+          <p class="w3-opacity">Head of marketing</p>
+          <p>Remy has been in the industry for more than a decade and is part of the Multi Money Group alongside big names 
+		  such as DonkeyMails, JillsClickCorner and PlanetTraffic just to name a few.</p>
+          <p><button class="w3-button w3-light-grey w3-block"><i class="fa fa-envelope"></i> Contact</button></p>
+        </div>
+      </div>
+    </div>
+	
+	<div class="w3-col m2"><p></p></div>
+	
+  </div>
+</div>
+
+<!-- Specifications & Distribution  -->
+<div class="w3-container" style="padding:128px 16px" id="specifications">
+
+<h3 class="w3-center">Specifications & Distribution</h3>
+
+<div class="w3-row">
+	<div class="w3-col m2"><p></p></div>
+	<div class="w3-col m8 w3-center">
+	<p class="w3-large">CLIX Token will be distributed privately to Paid to Click website owners with the initial batch 
+  being free of charge. This is to help website owners get started and fill their reserves.</p>
+	</div>
+	<div class="w3-col m2"><p></p></div>
+</div>
+
+<div id="chartdiv" style="width: 100%; height: 400px;"></div>
+
+<div class="w3-container w3-row w3-center w3-dark-grey w3-padding-64">
+  <div class="w3-quarter">
+    <span class="w3-xxlarge">200mil</span>
+    <br>Total supply
+  </div>
+  <div class="w3-quarter">
+    <span class="w3-xxlarge">170mil</span>
+    <br>Total distributed
+  </div>
+  <div class="w3-quarter">
+    <span class="w3-xxlarge">20mil</span>
+    <br>Developer's reward
+  </div>
+  <div class="w3-quarter">
+    <span class="w3-xxlarge">10mil</span>
+    <br>Bounties
+  </div>
+</div>
+
+</div>
+
+<!-- Roadmap -->
+<div class="w3-container w3-light-grey" style="padding:128px 16px" id="specifications">
+
+<h3 class="w3-center">Roadmap</h3>
+
+<div class="roadmapWrapper">
+<div class="entries">
+  <div class="entry">
+    <div class="title">Q4 2017</div>
+    <div class="body">
+      <p>Market research, development of the website and whitepaper.</p>
+    </div>
+  </div>
+  <div class="entry">
+    <div class="title">Q1 2018</div>
+    <div class="body">
+      <p>Begin work with Blockchain developers to build the underlying Smart Contract for CLIX Token.</p>
+    </div>
+  </div>
+  <div class="entry">
+    <div class="title big">Q2 2018</div>
+    <div class="body">
+      <p>CLIX Token launched on TestNet. Ongoing development of the Smart Contract's functionality. Bug testing.</p>
+    </div>
+  </div>
+  <div class="entry">
+    <div class="title">Q3 2018</div>
+    <div class="body">
+      <p>CLIX Token launched on MainNet. Start negotiations with PTC owners, distribution of free CLIX Token.</p>
+    </div>
+  </div>
+  <div class="entry">
+    <div class="title">Q4 2018</div>
+    <div class="body">
+      <p>CLIX Token supported by various PTC websites. Users can now earn CLIX Token by working on PTC websites that support it.</p>
+    </div>
+  </div>
+  <div class="entry">
+    <div class="title">Q1 2019</div>
+    <div class="body">
+      <p>CLIX Token goes live on the first cryptocurrency exchangers.</p>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+
+<!-- GET CLIX TOKEN  -->
+<div class="w3-container" style="padding:128px 16px" id="specifications">
+
+<h3 class="w3-center">How to get CLIX Token?</h3>
+
+<div class="w3-row">
+	<div class="w3-col m2"><p></p></div>
+	<div class="w3-col m8 w3-center">
+	<p class="w3-large">In order to get CLIX Token you have to either be a PTC website owner or simply view ads and 
+	complete offers on a PTC website that already supports our token.</p>
+	</div>
+	<div class="w3-col m2"><p></p></div>
+</div>
+
+<div class="w3-row-padding">
+	<div class="w3-col m1"><p></p></div>
+	<div class="w3-col m5">
+	<h3>PTC Owners</h3>
+	<p class="w3-medium">Simply fill in the CLIX Token request form. We will need your full name, website's URL, 
+	Ethereum address to whitelist and a brief description about you, your goals and how long have you been in 
+	the business for.
+	<br><br>
+	We will then review your application and add your Ethereum address to our whitelist. Once approved you can simply 
+	send our Smart Contract 0 ETH (you cover only the Gas price for miners) and it will send you back 10,000 CLIX for free.
+	<br><br>
+	Please note that the free 10,000 CLIX will be sent only once to every PTC website owner who shows interest in our token. 
+	This is to fill the initial reserve and get you started distributing CLIX to your users as soon as possible. Afterwards 
+	the Smart Contract will sell you CLIX Token at the rate of 10,000 CLIX / 1 ETH. 
+	</p>
+	</div>
+	<div class="w3-col m5">
+	<h3>PTC Users</h3>
+	<p class="w3-medium">If you are a PTC website user (the clicker) then the only way for you to receive CLIX Token is to 
+	either launch your own PTC website and submit the form or an easier way would be to simply ask your favorite PTC website 
+	to consider joining us in our quest for making the Paid to Click industry better, stronger and less, well, scammy. 
+	<br><br>
+	We are working on a prototype of a decentralized Paid to Click service but there is currently no time frame as to when 
+	this will be ready. 
+	</p>
+	</div>
+	<div class="w3-col m1"><p></p></div>
+</div>
+</div>
+
+<!-- Footer -->
+<footer class="w3-row w3-black w3-padding-64">
+
+	<div class="w3-col m1"><p></p></div>
+	
+	<div class="w3-col m5 w3-large w3-section">
+		<p><i class="fa fa-map-marker fa-fw w3-xxlarge w3-margin-right"></i> Tallinn, EE</p>
+		<p><i class="fa fa-phone fa-fw w3-xxlarge w3-margin-right"></i> Phone: +372 5910 7534</p>
+		<p><i class="fa fa-envelope fa-fw w3-xxlarge w3-margin-right"> </i> Email: info@clixtoken.io</p>
+	</div>
+	
+	<div class="w3-col m5 w3-large w3-section">
+		<i class="fab fa-facebook w3-xxlarge w3-hover-opacity w3-margin-right"></i>
+		<i class="fab fa-twitter-square w3-xxlarge w3-hover-opacity w3-margin-right"></i>
+		<i class="fab fa-discord w3-xxlarge w3-hover-opacity w3-margin-right"></i>
+		<i class="fab fa-telegram w3-xxlarge w3-hover-opacity w3-margin-right"></i>
+		<p>© CLIX Token. All rights reserved.</p>
+	</div>
+
+<div class="w3-col m1"><p></p></div>
+
+</footer>
+
+<script>
+// Toggle between showing and hiding the sidebar when clicking the menu icon
+var mySidebar = document.getElementById("mySidebar");
+
+function w3_open() {
+    if (mySidebar.style.display === 'block') {
+        mySidebar.style.display = 'none';
+    } else {
+        mySidebar.style.display = 'block';
+    }
+}
+
+// Close the sidebar with the close button
+function w3_close() {
+    mySidebar.style.display = "none";
+}
+</script>
+
 </body>
 </html>
